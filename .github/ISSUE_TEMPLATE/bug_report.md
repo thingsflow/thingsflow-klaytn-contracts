@@ -1,21 +1,28 @@
 ---
-name: Bug report
-about: Report a bug in OpenZeppelin Contracts
+name: "\U0001F41C Bug report"
+about: Create a report to depict the bug(s) identified
+title: ''
+labels: bug
+assignees: ''
 
 ---
 
-<!-- Briefly describe the issue you're experiencing. Tell us what you were trying to do and what happened instead. -->
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-<!-- Remember, this is not a place to ask for help debugging code. For that, we welcome you in the OpenZeppelin Community Forum: https://forum.openzeppelin.com/. -->
+**How to reproduce**
+Steps to reproduce the behavior:
 
-**💻 Environment**
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-<!-- Tell us what version of OpenZeppelin Contracts you're using, and how you're using it: Truffle, Remix, etc. -->
+**Attachments**
+If applicable, add data, logs or screenshots to help explain your problem.
 
-**📝 Details**
+**Environment (please complete the following information)**
+ - Klaytn version or git revision that exhibits the issue `$ ken version`
+ - The version pragma of the smart contract(s) involved
+ - OS and its version [e.g. macOS/10.14]
 
-<!-- Describe the problem you have been experiencing in more detail. Include as much information as you think is relevant. Keep in mind that transactions can fail for many reasons; context is key here. -->
-
-**🔢 Code to reproduce bug**
-
-<!-- We will be able to better help if you provide a minimal example that triggers the bug. -->
+**Additional context**
+Add any other context about the problem here.
