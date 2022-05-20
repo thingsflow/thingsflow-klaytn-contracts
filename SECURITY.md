@@ -2,7 +2,7 @@
 
 ## Bug Bounty
 
-Please report any security issues you find to `//todo`.
+Please report any security issues you find to `developer@klaytn.foundation`.
 
 Critical bug fixes will be backported to past major releases.
 
