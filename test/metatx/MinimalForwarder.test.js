@@ -1,6 +1,6 @@
 const ethSigUtil = require('eth-sig-util');
 const Wallet = require('ethereumjs-wallet').default;
-const { EIP712Domain } = require('../helpers/eip712');
+const { EIP712Domain } = require('../../helpers/eip712');
 
 const { expectRevert, constants } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');

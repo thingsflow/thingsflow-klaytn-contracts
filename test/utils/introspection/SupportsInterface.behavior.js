@@ -6,6 +6,44 @@ const INTERFACES = {
   ERC165: [
     'supportsInterface(bytes4)',
   ],
+  KIP17: [
+    'balanceOf(address)',
+    'ownerOf(uint256)',
+    'approve(address,uint256)',
+    'getApproved(uint256)',
+    'setApprovalForAll(address,bool)',
+    'isApprovedForAll(address,address)',
+    'transferFrom(address,address,uint256)',
+    'safeTransferFrom(address,address,uint256)',
+    'safeTransferFrom(address,address,uint256,bytes)',
+  ],
+  KIP17Metadata: [
+    'name()',
+    'symbol()',
+    'tokenURI(uint256)',
+  ],
+  KIP17Enumerable: [
+    'totalSupply()',
+    'tokenOfOwnerByIndex(address,uint256)',
+    'tokenByIndex(uint256)',
+  ],
+  KIP17Mintable: [
+    'mint(address,uint256)',
+    'isMinter(address)',
+    'addMinter(address)',
+    'renounceMinter(address)',
+  ],
+  KIP17Pausable: [
+    'paused()',
+    'pause()',
+    'unpause()',
+    'isPauser(address)',
+    'addPauser(address)',
+    'renouncePauser()',
+  ],
+  KIP17Burnable: [
+    'burn(unit256)',
+  ],
   ERC721: [
     'balanceOf(address)',
     'ownerOf(uint256)',
@@ -38,6 +76,18 @@ const INTERFACES = {
   ERC1155Receiver: [
     'onERC1155Received(address,address,uint256,uint256,bytes)',
     'onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)',
+  ],
+  KIP37: [
+    'balanceOf(address,uint256)',
+    'balanceOfBatch(address[],uint256[])',
+    'setApprovalForAll(address,bool)',
+    'isApprovedForAll(address,address)',
+    'safeTransferFrom(address,address,uint256,uint256,bytes)',
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)',
+  ],
+  KIP37Receiver: [
+    'onKIP37Received(address,address,uint256,uint256,bytes)',
+    'onKIP37BatchReceived(address,address,uint256[],uint256[],bytes)',
   ],
   AccessControl: [
     'hasRole(bytes32,address)',

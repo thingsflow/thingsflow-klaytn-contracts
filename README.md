@@ -8,9 +8,6 @@ It is a fork of openzepplin contracts. In addition to that, this repository cont
 
 Please refer to [this](https://kips.klaytn.com/token) link for the mapping of Ethereum to Klaytn token standards.
 
-
-:mage: **Not sure how to get started?** Check out [klaytn Sandbox](https://github.com/Krustuniverse-Klaytn-Group/klaytn-dev-sandbox) — to deploy contracts on klaytn network and build application on Klaytn.
-
 ## Overview
 
 ### Installation
@@ -38,8 +35,6 @@ contract MyCollectible is KIP17 {
 
 To keep your system secure, you should **always** use the installed code as-is, and neither copy-paste it from online sources, nor modify it yourself. The library is designed so that only the contracts and functions you use are deployed, so you don't need to worry about it needlessly increasing gas costs.
 
-## Learn More
-
 ## Contribute
 
 In line with our commitment to decentralization, all Klaytn codebase and its documentations are completely open source. Klaytn always welcomes your contribution. Anyone can view, edit, fix its contents and make suggestions. You can either create a pull request on GitHub or use GitBook. Make sure to sign our [Contributor License Agreement (CLA)](https://cla-assistant.io/klaytn/klaytn-contracts) first and there are also a few guidelines our contributors would check out before contributing:
@@ -50,7 +45,7 @@ In line with our commitment to decentralization, all Klaytn codebase and its doc
 
 ## Need Help? <a href="#need-help" id="need-help"></a>
 
-If you have any questions, please visit our [Gitter channel](//todo), [Klaytn Developers Forum](https://forum.klaytn.com/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
+If you have any questions, please visit our [Gitter channel](//todo), [Klaytn Developers Forum](https://forum.klaytn.foundation/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
 
 ## License
 

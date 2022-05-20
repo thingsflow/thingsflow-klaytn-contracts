@@ -1,7 +1,3 @@
-
-View full
-Viewed
-@@ -0,0 +1,76 @@
 # Contributing Guidelines
 
 Thank you for your interest in contributing to Klaytn Contracts. As an open source project, Klaytn Contracts is always open to the developer community and we welcome your contribution to help more developer onboarding resources for the Klaytn developer community. Please read the guideline below and follow it in all interactions with the project.
@@ -30,7 +26,7 @@ If you find a bug or other issues in Klaytn, please [submit an issue](https://gi
 
 - The issue is not a duplicate issue.
 - The issue has not been fixed in the latest release of Klaytn Contracts.
-Please do not use the issue tracker for personal support requests. Use developer@klaytn.com for the personal support requests.
+Please do not use the issue tracker for personal support requests. Use developer@klaytn.foundation for the personal support requests.
 
 When you report a bug, please make sure that your report has the following information.
 - Steps to reproduce the issue.
