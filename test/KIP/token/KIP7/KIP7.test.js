@@ -408,7 +408,7 @@ contract('KIP7', function (accounts) {
       recipient,
       initialSupply,
       function (from, to, amount) {
-        return this.token.safeTransferInternal(from, to, amount);
+        return this.token.safeTransferInternal(from, to, amount, {from : from});
       },
     );
   });
