@@ -1,7 +1,8 @@
 # Klaytn Contracts
 
 [![Docs](https://img.shields.io/badge/docs-%F0%9F%93%84-blue)](https://docs.klaytn.foundation/)
-[![NPM Package](https://img.shields.io/npm/v/@openzeppelin/contracts.svg)](https://www.npmjs.com/package/@klaytn/contracts)
+[![NPM Package](https://badge.fury.io/js/@klaytn%2Fcontracts.svg)](https://www.npmjs.com/package/@klaytn/contracts)
+[![Gitter](https://badges.gitter.im/klaytn/klaytn-contracts.svg)](https://gitter.im/klaytn/klaytn-contracts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 **A library for secure smart contract development.** Build on a solid foundation of community-vetted code.
 It is a fork of openzepplin contracts. In addition to that, this repository contains Klaytn's token standards such as KIP-7, KIP-17, and KIP-37 compatible with ERC-20, ERC-721, and ERC-1155 respectively.
