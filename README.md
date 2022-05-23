@@ -46,7 +46,7 @@ In line with our commitment to decentralization, all Klaytn codebase and its doc
 
 ## Need Help? <a href="#need-help" id="need-help"></a>
 
-If you have any questions, please visit our [Gitter channel](//todo), [Klaytn Developers Forum](https://forum.klaytn.foundation/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
+If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/klaytn-contracts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge), [Klaytn Developers Forum](https://forum.klaytn.foundation/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
 
 ## License
 
