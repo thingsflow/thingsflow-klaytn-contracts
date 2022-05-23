@@ -459,7 +459,7 @@ function shouldBehaveLikeKIP7SafeTransfer (
         this.receiver = await KIP7ReceiverMock.new(
           RECEIVER_MAGIC_VALUE,
           Error.None,
-          {from: from}
+          { from: from },
         );
         this.toWhom = this.receiver.address;
       });

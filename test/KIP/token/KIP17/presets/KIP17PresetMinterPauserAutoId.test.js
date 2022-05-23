@@ -7,7 +7,7 @@ const {
 const { ZERO_ADDRESS } = constants;
 const {
   shouldSupportInterfaces,
-} = require('../../../../utils/introspection/SupportsInterface.behavior');
+} = require('../../../utils/introspection/SupportsInterface.behavior');
 
 const { expect } = require('chai');
 

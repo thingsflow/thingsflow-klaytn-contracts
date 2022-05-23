@@ -5,7 +5,7 @@ const KIP17MetadataMintableMock = artifacts.require('KIP17MetadataMintableMock')
 
 const {
   shouldSupportInterfaces,
-} = require('../../../../utils/introspection/SupportsInterface.behavior');
+} = require('../../../utils/introspection/SupportsInterface.behavior');
 
 contract('KIP17MetadataMintableMock', function (accounts) {
   const [deployer, other] = accounts;

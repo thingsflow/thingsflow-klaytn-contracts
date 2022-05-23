@@ -9,7 +9,7 @@ const { ZERO_ADDRESS } = constants;
 
 const {
   shouldSupportInterfaces,
-} = require('../../../utils/introspection/SupportsInterface.behavior');
+} = require('../../utils/introspection/SupportsInterface.behavior');
 
 const KIP17ReceiverMock = artifacts.require('KIP17ReceiverMock');
 const ERC721ReceiverMock = artifacts.require('ERC721ReceiverMock.sol');

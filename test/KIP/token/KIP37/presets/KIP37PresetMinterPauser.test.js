@@ -7,7 +7,7 @@ const {
 const { ZERO_ADDRESS } = constants;
 const {
   shouldSupportInterfaces,
-} = require('../../../../utils/introspection/SupportsInterface.behavior');
+} = require('../../../utils/introspection/SupportsInterface.behavior');
 
 const { expect } = require('chai');
 
@@ -114,8 +114,8 @@ contract('KIP37PresetMinterPauser', function (accounts) {
     const data = web3.utils.soliditySha3(uri);
 
     beforeEach(async function () {
-      this.receipt = await this.token.create(firstTokenId, firstTokenInitialSupply, data, {from: deployer});
-      this.receipt = await this.token.create(secondTokenId, secondTokenInitialSupply, data, {from: deployer});
+      this.receipt = await this.token.create(firstTokenId, firstTokenInitialSupply, data, { from: deployer });
+      this.receipt = await this.token.create(secondTokenId, secondTokenInitialSupply, data, { from: deployer });
     });
 
     it('deployer can batch mint tokens', async function () {

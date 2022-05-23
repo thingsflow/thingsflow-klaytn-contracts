@@ -1,12 +1,11 @@
 const { makeInterfaceId } = require('@openzeppelin/test-helpers');
-
-const { expect } = require('chai');
+var should = require('chai').should();
 
 const INTERFACES = {
-  ERC165: [
+  KIP13: [
     'supportsInterface(bytes4)',
   ],
-  ERC721: [
+  KIP17: [
     'balanceOf(address)',
     'ownerOf(uint256)',
     'approve(address,uint256)',
@@ -17,17 +16,34 @@ const INTERFACES = {
     'safeTransferFrom(address,address,uint256)',
     'safeTransferFrom(address,address,uint256,bytes)',
   ],
-  ERC721Enumerable: [
-    'totalSupply()',
-    'tokenOfOwnerByIndex(address,uint256)',
-    'tokenByIndex(uint256)',
-  ],
-  ERC721Metadata: [
+  KIP17Metadata: [
     'name()',
     'symbol()',
     'tokenURI(uint256)',
   ],
-  ERC1155: [
+  KIP17Enumerable: [
+    'totalSupply()',
+    'tokenOfOwnerByIndex(address,uint256)',
+    'tokenByIndex(uint256)',
+  ],
+  KIP17Mintable: [
+    'mint(address,uint256)',
+    'isMinter(address)',
+    'addMinter(address)',
+    'renounceMinter(address)',
+  ],
+  KIP17Pausable: [
+    'paused()',
+    'pause()',
+    'unpause()',
+    'isPauser(address)',
+    'addPauser(address)',
+    'renouncePauser()',
+  ],
+  KIP17Burnable: [
+    'burn(unit256)',
+  ],
+  KIP37: [
     'balanceOf(address,uint256)',
     'balanceOfBatch(address[],uint256[])',
     'setApprovalForAll(address,bool)',
@@ -35,9 +51,9 @@ const INTERFACES = {
     'safeTransferFrom(address,address,uint256,uint256,bytes)',
     'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)',
   ],
-  ERC1155Receiver: [
-    'onERC1155Received(address,address,uint256,uint256,bytes)',
-    'onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)',
+  KIP37Receiver: [
+    'onKIP37Received(address,address,uint256,uint256,bytes)',
+    'onKIP37BatchReceived(address,address,uint256[],uint256[],bytes)',
   ],
   AccessControl: [
     'hasRole(bytes32,address)',
@@ -50,54 +66,8 @@ const INTERFACES = {
     'getRoleMember(bytes32,uint256)',
     'getRoleMemberCount(bytes32)',
   ],
-  Governor: [
-    'name()',
-    'version()',
-    'COUNTING_MODE()',
-    'hashProposal(address[],uint256[],bytes[],bytes32)',
-    'state(uint256)',
-    'proposalSnapshot(uint256)',
-    'proposalDeadline(uint256)',
-    'votingDelay()',
-    'votingPeriod()',
-    'quorum(uint256)',
-    'getVotes(address,uint256)',
-    'hasVoted(uint256,address)',
-    'propose(address[],uint256[],bytes[],string)',
-    'execute(address[],uint256[],bytes[],bytes32)',
-    'castVote(uint256,uint8)',
-    'castVoteWithReason(uint256,uint8,string)',
-    'castVoteBySig(uint256,uint8,uint8,bytes32,bytes32)',
-  ],
-  GovernorWithParams: [
-    'name()',
-    'version()',
-    'COUNTING_MODE()',
-    'hashProposal(address[],uint256[],bytes[],bytes32)',
-    'state(uint256)',
-    'proposalSnapshot(uint256)',
-    'proposalDeadline(uint256)',
-    'votingDelay()',
-    'votingPeriod()',
-    'quorum(uint256)',
-    'getVotes(address,uint256)',
-    'getVotesWithParams(address,uint256,bytes)',
-    'hasVoted(uint256,address)',
-    'propose(address[],uint256[],bytes[],string)',
-    'execute(address[],uint256[],bytes[],bytes32)',
-    'castVote(uint256,uint8)',
-    'castVoteWithReason(uint256,uint8,string)',
-    'castVoteWithReasonAndParams(uint256,uint8,string,bytes)',
-    'castVoteBySig(uint256,uint8,uint8,bytes32,bytes32)',
-    'castVoteWithReasonAndParamsBySig(uint256,uint8,string,bytes,uint8,bytes32,bytes32)',
-  ],
-  GovernorTimelock: [
-    'timelock()',
-    'proposalEta(uint256)',
-    'queue(address[],uint256[],bytes[],bytes32)',
-  ],
-  ERC2981: [
-    'royaltyInfo(uint256,uint256)',
+  ERC165: [
+    'supportsInterface(bytes4)',
   ],
 };
 

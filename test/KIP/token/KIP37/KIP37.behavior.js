@@ -10,7 +10,7 @@ const { expect } = require('chai');
 
 const {
   shouldSupportInterfaces,
-} = require('../../../utils/introspection/SupportsInterface.behavior');
+} = require('../../utils/introspection/SupportsInterface.behavior');
 
 const KIP37ReceiverMock = artifacts.require('KIP37ERC1155ReceiverMock');
 

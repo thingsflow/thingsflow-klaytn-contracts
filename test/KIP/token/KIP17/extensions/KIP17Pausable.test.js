@@ -5,7 +5,7 @@ const KIP17PausableMock = artifacts.require('KIP17PausableMock');
 
 const {
   shouldSupportInterfaces,
-} = require('../../../../utils/introspection/SupportsInterface.behavior');
+} = require('../../../utils/introspection/SupportsInterface.behavior');
 
 contract('KIP17Pausable', function (accounts) {
   const [deployer, other, owner, receiver] = accounts;
@@ -65,7 +65,7 @@ contract('KIP17Pausable', function (accounts) {
     describe('transfer while paused', function () {
       it('contract should be pasued', async function () {
         expect(await this.token.isPauser(deployer)).to.equal(true);
-        expect(await this.token.isPaused()).to.equal(true);
+        expect(await this.token.paused()).to.equal(true);
       });
 
       it('reverts when trying to transferFrom', async function () {
