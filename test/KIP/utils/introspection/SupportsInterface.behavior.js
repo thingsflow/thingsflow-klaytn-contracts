@@ -74,7 +74,7 @@ const INTERFACES = {
 const INTERFACE_IDS = {};
 const FN_SIGNATURES = {};
 for (const k of Object.getOwnPropertyNames(INTERFACES)) {
-  INTERFACE_IDS[k] = makeInterfaceId.ERC165(INTERFACES[k]);
+  INTERFACE_IDS[k] = makeInterfaceId.ERC165(INTERFACES[k]); //can't use kip13 as it requires to be included and exported in @openzeppelin/test-helpers(https://github.com/klaytn/klaytn-contracts/blob/klaytn-migration/node_modules/@openzeppelin/test-helpers/src/makeInterfaceId.js)
   for (const fnName of INTERFACES[k]) {
     // the interface id of a single function is equivalent to its function signature
     FN_SIGNATURES[fnName] = makeInterfaceId.ERC165([fnName]);
@@ -82,7 +82,7 @@ for (const k of Object.getOwnPropertyNames(INTERFACES)) {
 }
 
 function shouldSupportInterfaces (interfaces = []) {
-  describe('ERC165', function () {
+  describe('KIP13', function () {
     beforeEach(function () {
       this.contractUnderTest = this.mock || this.token || this.holder || this.accessControl;
     });
