@@ -1,14 +1,14 @@
 {
-  "name": "openzeppelin-solidity",
+  "name": "klaytn-contracts",
   "description": "Secure Smart Contract library for Solidity",
-  "version": "4.6.0",
+  "version": "1.0.0",
   "files": [
     "/contracts/**/*.sol",
     "/build/contracts/*.json",
     "!/contracts/mocks/**/*"
   ],
   "bin": {
-    "openzeppelin-contracts-migrate-imports": "scripts/migrate-imports.js"
+    "klaytn-contracts-migrate-imports": "scripts/migrate-imports.js"
   },
   "scripts": {
     "compile": "hardhat compile",
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OpenZeppelin/openzeppelin-contracts.git"
+    "url": "https://github.com/klaytn/klaytn-contracts.git"
   },
   "keywords": [
     "solidity",
@@ -41,14 +41,15 @@
     "smart",
     "contracts",
     "security",
-    "zeppelin"
+    "klaytn",
+    "klaytn"
   ],
-  "author": "OpenZeppelin Community <maintainers@openzeppelin.org>",
+  "author": "Klaytn Community",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OpenZeppelin/openzeppelin-contracts/issues"
+    "url": "https://github.com/klaytn/klaytn-contracts/issues"
   },
-  "homepage": "https://openzeppelin.com/contracts/",
+  "homepage": "https://github.com/klaytn/klaytn-contracts#readme",
   "devDependencies": {
     "@nomiclabs/hardhat-truffle5": "^2.0.5",
     "@nomiclabs/hardhat-web3": "^2.0.0",

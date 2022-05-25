@@ -73,6 +73,12 @@ module.exports = {
       allowUnlimitedContractSize: !withOptimizations,
     },
   },
+  paths: {
+    sources: './contracts',
+    tests: './test/KIP/token/KIP7',
+    cache: './cache',
+    artifacts: './artifacts',
+  },
   gasReporter: {
     currency: 'USD',
     outputFile: argv.ci ? 'gas-report.txt' : undefined,
