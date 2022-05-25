@@ -41,6 +41,71 @@ You can also use the [issue tracker](https://github.com/klaytn/klaytn-contracts/
 
 Please submit an issue explaining your proposal first so that the Klaytn developer community can fully understand and discuss the idea. Please use [labels](#usage-of-labels) for your feature request as well.
 
+### Code Contribution 
+
+Smart contracts manage value and are highly vulnerable to errors and attacks. Hence, please make sure to review the following guidelines. 
+
+#### Style Guidelines
+
+The design guidelines have quite a high abstraction level. These style guidelines are more concrete and easier to apply, and also more opinionated. We value clean code and consistency, and those are prerequisites for us to include new code in the repository. Before proposing a change, please read these guidelines and take some time to familiarize yourself with the style of the existing codebase.
+
+#### Solidity code
+
+In order to be consistent with all the other Solidity projects, we follow the
+[official recommendations documented in the Solidity style guide](http://solidity.readthedocs.io/en/latest/style-guide.html) and [openzepplin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/GUIDELINES.md) style guide.
+
+#### Tests
+
+* Tests Must be Written Elegantly
+
+    Tests are a good way to show how to use the library, and maintaining them is extremely necessary. Don't write long tests, write helper functions to make them be as short and concise as possible (they should take just a few lines each), and use good variable names.
+
+* Tests Must not be Random
+
+    Inputs for tests should not be generated randomly. Accounts used to create test contracts are an exception, those can be random. Also, the type and structure of outputs should be checked.
+
+#### Creating a Pull Request(PRs)
+As a contributor, you are expected to fork this repository, work on your own fork and then submit pull requests. The pull requests will be reviewed and eventually merged into the main repo. See ["Fork-a-Repo"](https://help.github.com/articles/fork-a-repo/) for how this works.
+
+1) Make sure your fork is up to date with the main repository:
+
+```
+cd klaytn-contracts
+git remote add upstream https://github.com/klaytn/klaytn-contracts.git
+git fetch upstream
+git pull --rebase upstream master
+```
+NOTE: The directory `klaytn-contracts` represents your fork's local copy.
+
+2) Branch out from `master` into `fix/some-bug-#123`/`feature/add-timelock`. 
+
+```
+git checkout -b fix/some-bug-#123
+```
+
+3) Make your changes, add your files, commit, and push to your fork.  
+```
+git add SomeFile.js
+git commit "Fixed bug #123"
+git push origin fix/some-bug-#123
+```
+
+4) Run tests, linter, etc. This can be done by running local continuous integration and make sure it passes.
+
+```bash
+npm test
+npm run lint:fix
+npm run lint
+```
+
+5) Create a new pull request. If its a issue, make sure you link the issue in the [Related issues](https://github.com/klaytn/klaytn-contracts/blob/4b9efe2976d892e11f839bd3e05739226d4fd81f/.github/PULL_REQUEST_TEMPLATE.md)
+
+*IMPORTANT* Read the PR template very carefully and make sure to follow all the instructions. These instructions
+refer to some very important conditions that your PR must meet in order to be accepted, such as making sure that all tests pass, JS linting tests pass, Solidity linting tests pass, etc.
+
+6) Maintainers will review your code and possibly ask for changes before your code is pulled in to the main repository. We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of Klaytn Contracts.
+
+
 #### Usage of Labels
 
 You can use the following labels:
@@ -48,8 +113,8 @@ You can use the following labels:
 Labels for initial issue categories:
 
 - issue/bug: Issues with the code-level bugs.
-- issue/documentation: Issues with the documentation.
 - issue/enhancement: Issues for enhancement requests.
+- issue/questions: Questions to klaytn contracts and other issues not related to bug or enhancement.
 
 Status of open issues (will be tagged by the project moderators):
 
