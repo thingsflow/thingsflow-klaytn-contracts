@@ -1,5 +1,5 @@
 {
-  "name": "klaytn-contracts",
+  "name": "@klaytn/contracts",
   "description": "Secure Smart Contract library for Solidity",
   "version": "1.0.0",
   "files": [
@@ -13,9 +13,6 @@
   "scripts": {
     "compile": "hardhat compile",
     "coverage": "env COVERAGE=true hardhat coverage",
-    "docs": "oz-docs",
-    "docs:watch": "npm run docs watch contracts 'docs/*.hbs' docs/helpers.js",
-    "prepare-docs": "scripts/prepare-docs.sh",
     "lint": "npm run lint:js && npm run lint:sol",
     "lint:fix": "npm run lint:js:fix && npm run lint:sol:fix",
     "lint:js": "eslint --ignore-path .gitignore .",
@@ -23,10 +20,6 @@
     "lint:sol": "solhint 'contracts/**/*.sol' && prettier -c 'contracts/**/*.sol'",
     "lint:sol:fix": "prettier --write \"contracts/**/*.sol\"",
     "clean": "hardhat clean && rimraf build contracts/build",
-    "prepare": "npm run clean && env COMPILE_MODE=production npm run compile",
-    "prepack": "scripts/prepack.sh",
-    "release": "scripts/release/release.sh",
-    "version": "scripts/release/version.sh",
     "test": "hardhat test",
     "test:inheritance": "node scripts/inheritanceOrdering artifacts/build-info/*",
     "gas-report": "env ENABLE_GAS_REPORT=true npm run test"
@@ -44,7 +37,7 @@
     "klaytn",
     "klaytn"
   ],
-  "author": "Klaytn Community",
+  "author": "Klaytn Community <developer@klaytn.foundation>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/klaytn/klaytn-contracts/issues"

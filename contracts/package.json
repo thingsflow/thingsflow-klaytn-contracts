@@ -1,7 +1,7 @@
 {
-  "name": "@openzeppelin/contracts",
+  "name": "@klaytn/contracts",
   "description": "Secure Smart Contract library for Solidity",
-  "version": "4.6.0",
+  "version": "1.0.0",
   "files": [
     "**/*.sol",
     "/build/contracts/*.json",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OpenZeppelin/openzeppelin-contracts.git"
+    "url": "https://github.com/klaytn/klaytn-contracts.git"
   },
   "keywords": [
     "solidity",
@@ -23,10 +23,10 @@
     "security",
     "zeppelin"
   ],
-  "author": "OpenZeppelin Community <maintainers@openzeppelin.org>",
+  "author": "Klaytn Community <developer@klaytn.foundation>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OpenZeppelin/openzeppelin-contracts/issues"
+    "url": "https://github.com/klaytn/klaytn-contracts/issues"
   },
-  "homepage": "https://openzeppelin.com/contracts/"
+  "homepage": "https://github.com/klaytn/klaytn-contracts#readme"
 }

@@ -51,3 +51,7 @@ If you have any questions, please visit our [Gitter channel](https://gitter.im/k
 ## License
 
  Contracts is released under the [MIT License](LICENSE).
+
+## Acknowledgments 
+
+Thanks for Openzepplin Team for providing the  contracts.
