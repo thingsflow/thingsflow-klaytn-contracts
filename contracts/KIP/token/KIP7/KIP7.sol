@@ -6,6 +6,7 @@
 pragma solidity ^0.8.0;
 
 import "../../../utils/Context.sol";
+import "../../utils/introspection/KIP13.sol";
 import "./IKIP7.sol";
 import "./extensions/IKIP7Metadata.sol";
 import "../../../utils/Address.sol";
@@ -34,7 +35,7 @@ import "./IKIP7Receiver.sol";
  *
  * See http://kips.klaytn.com/KIPs/kip-7-fungible_token
  */
-contract KIP7 is Context, IKIP7, IKIP7Metadata {
+contract KIP7 is Context, KIP13, IKIP7, IKIP7Metadata {
     using Address for address;
 
     mapping(address => uint256) private _balances;
@@ -58,6 +59,16 @@ contract KIP7 is Context, IKIP7, IKIP7Metadata {
     constructor(string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
+    }
+
+    /**
+     * @dev See {IKIP13-supportsInterface}.
+     */
+    function supportsInterface(bytes4 interfaceId) public view virtual override(KIP13) returns (bool) {
+        return
+            interfaceId == type(IKIP7).interfaceId ||
+            interfaceId == type(IKIP7Metadata).interfaceId ||
+            KIP13.supportsInterface(interfaceId);
     }
 
     /**

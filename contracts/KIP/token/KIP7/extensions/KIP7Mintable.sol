@@ -36,6 +36,24 @@ abstract contract KIP7Mintable is KIP7, AccessControlEnumerable, IKIP7Mintable {
     }
 
     /**
+     * @dev Returns true if `interfaceId` is implemented and false otherwise
+     *
+     * See {IKIP13} and {IERC165}.
+     */
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(KIP7, AccessControlEnumerable)
+        returns (bool)
+    {
+        return
+            interfaceId == type(IKIP7Mintable).interfaceId ||
+            KIP7.supportsInterface(interfaceId) ||
+            AccessControlEnumerable.supportsInterface(interfaceId);
+    }
+
+    /**
      * @dev See {IKIP7Mintable-isMinter}
      */
     function isMinter(address account) public view returns (bool) {

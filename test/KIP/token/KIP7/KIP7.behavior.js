@@ -5,6 +5,7 @@ const {
   expectRevert,
 } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
+const { shouldSupportInterfaces } = require('../../utils/introspection/SupportsInterface.behavior');
 const { ZERO_ADDRESS, MAX_UINT256 } = constants;
 
 const KIP7ReceiverMock = artifacts.require('KIP7ReceiverMock');
@@ -25,6 +26,8 @@ function shouldBehaveLikeKIP7 (
   recipient,
   anotherAccount,
 ) {
+  shouldSupportInterfaces(['ERC165', 'KIP13', 'KIP7'])
+
   describe('total supply', function () {
     it('returns the total amount of tokens', async function () {
       expect(await this.token.totalSupply()).to.be.bignumber.equal(
@@ -314,6 +317,8 @@ function shouldBehaveLikeKIP7Transfer (
   balance,
   transfer,
 ) {
+  shouldSupportInterfaces(['KIP7']);
+
   describe('when the recipient is not the zero address', function () {
     describe('when the sender does not have enough balance', function () {
       const amount = balance.addn(1);
@@ -392,6 +397,7 @@ function shouldBehaveLikeKIP7SafeTransfer (
   balance,
   safeTransfer,
 ) {
+  shouldSupportInterfaces(['KIP7']);
   describe('when the recipient is not the zero address', function () {
     describe('when the sender does not have enough balance', function () {
       const amount = balance.addn(1);
@@ -527,6 +533,7 @@ function shouldBehaveLikeKIP7Approve (
   supply,
   approve,
 ) {
+  shouldSupportInterfaces(['KIP7']);
   describe('when the spender is not the zero address', function () {
     describe('when the sender has enough balance', function () {
       const amount = supply;

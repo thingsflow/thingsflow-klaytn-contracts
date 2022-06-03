@@ -17,6 +17,12 @@ import "./IKIP7Burnable.sol";
  */
 abstract contract KIP7Burnable is Context, KIP7, IKIP7Burnable {
     /**
+     * @dev See {IKIP13-supportsInterface}.
+     */
+    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
+        return interfaceId == type(IKIP7Burnable).interfaceId || KIP7.supportsInterface(interfaceId);
+    }
+    /**
      * @dev Destroys `amount` tokens from the caller.
      *
      * See {KIP7-_burn}.

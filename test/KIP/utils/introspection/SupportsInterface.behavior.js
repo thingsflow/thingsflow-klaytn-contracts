@@ -2,6 +2,18 @@ const { makeInterfaceId } = require('@openzeppelin/test-helpers');
 var should = require('chai').should();
 
 const INTERFACES = {
+  KIP7: [
+    'totalSupply()',
+    'balanceOf(address)',
+    'transfer(address,uint256)',
+    'allowance(address,address)',
+    'approve(address,uint256)',
+    'transferFrom(address,address,uint256)',
+    'safeTransfer(address,uint256,bytes)',
+    'safeTransfer(address,uint256)',
+    'safeTransferFrom(address,address,uint256,bytes)',
+    'safeTransferFrom(address,address,uint256)'
+  ],
   KIP13: [
     'supportsInterface(bytes4)',
   ],
