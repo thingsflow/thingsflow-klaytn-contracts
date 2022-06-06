@@ -22,6 +22,24 @@ abstract contract KIP7Pausable is KIP7, Pausable, AccessControlEnumerable, IKIP7
     bytes32 public constant PAUSER_ROLE = keccak256("KIP7_PAUSER_ROLE");
 
     /**
+     * @dev Returns true if `interfaceId` is implemented and false otherwise
+     *
+     * See {IKIP13} and {IERC165}.
+     */
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(KIP7, AccessControlEnumerable)
+        returns (bool)
+    {
+        return
+            interfaceId == type(IKIP7Pausable).interfaceId ||
+            KIP7.supportsInterface(interfaceId) ||
+            AccessControlEnumerable.supportsInterface(interfaceId);
+    }
+
+    /**
      * @dev See {IKIP7Pausable-pause}
      *
      * Emits a {Paused} event.
