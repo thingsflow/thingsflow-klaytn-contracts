@@ -235,7 +235,7 @@ contract KIP7 is Context, KIP13, IKIP7, IKIP7Metadata {
      * - the caller must have a balance of at least `amount`.
      * - if `recipient` is a smart contract, it must implement {IKIP7Receiver}
      */
-    function safeTransfer(address recipient, uint256 amount) public override {
+    function safeTransfer(address recipient, uint256 amount) public virtual override {
         address owner = _msgSender();
         _safeTransfer(owner, recipient, amount, "");
     }
@@ -250,7 +250,7 @@ contract KIP7 is Context, KIP13, IKIP7, IKIP7Metadata {
         address recipient,
         uint256 amount,
         bytes memory _data
-    ) public override {
+    ) public virtual override {
         address owner = _msgSender();
         _safeTransfer(owner, recipient, amount, _data);
     }
@@ -277,7 +277,7 @@ contract KIP7 is Context, KIP13, IKIP7, IKIP7Metadata {
         address sender,
         address recipient,
         uint256 amount
-    ) external override {
+    ) external virtual override {
         address spender = _msgSender();
         _spendAllowance(sender, spender, amount);
         _safeTransfer(sender, recipient, amount, "");
@@ -296,7 +296,7 @@ contract KIP7 is Context, KIP13, IKIP7, IKIP7Metadata {
         address recipient,
         uint256 amount,
         bytes memory _data
-    ) public override {
+    ) public virtual override {
         address spender = _msgSender();
         _spendAllowance(sender, spender, amount);
         _safeTransfer(sender, recipient, amount, _data);
