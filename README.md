@@ -26,7 +26,7 @@ Once installed, you can use the contracts in the library by importing them:
 ```solidity
 pragma solidity ^0.8.0;
 
-import "@klaytn/contracts/contracts/KIP/token/KIP17/KIP17.sol";
+import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
 
 contract MyCollectible is KIP17 {
     constructor() KIP17("MyCollectible", "MCO") {
