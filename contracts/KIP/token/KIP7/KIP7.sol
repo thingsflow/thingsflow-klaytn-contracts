@@ -277,7 +277,7 @@ contract KIP7 is Context, KIP13, IKIP7, IKIP7Metadata {
         address sender,
         address recipient,
         uint256 amount
-    ) external virtual override {
+    ) public virtual override {
         address spender = _msgSender();
         _spendAllowance(sender, spender, amount);
         _safeTransfer(sender, recipient, amount, "");
