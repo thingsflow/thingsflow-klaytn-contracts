@@ -1,16 +1,12 @@
 {
   "name": "@klaytn/contracts",
   "description": "Secure Smart Contract library for Solidity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": [
     "**/*.sol",
     "/build/contracts/*.json",
     "!/mocks/**/*"
   ],
-  "scripts": {
-    "prepare": "bash ../scripts/prepare-contracts-package.sh",
-    "prepare-docs": "cd ..; npm run prepare-docs"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/klaytn/klaytn-contracts.git"
