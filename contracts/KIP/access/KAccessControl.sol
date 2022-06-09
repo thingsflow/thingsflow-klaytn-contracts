@@ -2,6 +2,7 @@
 // Klaytn Contract Library v1.0.1 (KIP/access/KAccessControl.sol)
 // Inherited from Openzepplin Accesscontrol
 // https://github.com/OpenZeppelin/openzeppelin-contracts/releases/tag/v4.5.0
+// Note - adding KIP13 interface for a backward compatible implementation
 
 pragma solidity ^0.8.0;
 
