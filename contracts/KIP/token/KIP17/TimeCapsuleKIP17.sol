@@ -7,7 +7,7 @@ import "./extensions/KIP17Pausable.sol";
 
 contract TimeCapsuleKIP17Token is KIP17Burnable, KIP17MetadataMintable, KIP17Enumerable, KIP17Pausable {
     mapping(uint256 => string) private _tokenRevealedURIs;
-    mapping(uint256 => uint256) private _tokenRevealedAts;
+    mapping(uint256 => uint256) private _tokenRevealableAts;
 
     constructor(string memory name, string memory symbol) KIP17(name, symbol) {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
@@ -21,9 +21,9 @@ contract TimeCapsuleKIP17Token is KIP17Burnable, KIP17MetadataMintable, KIP17Enu
         _tokenRevealedURIs[tokenId] = revealedURI;
     }
 
-    function _setTokenRevealedAt(uint256 tokenId, uint256 revealedAt) internal {
+    function _setTokenRevealableAt(uint256 tokenId, uint256 revealableAt) internal {
         require(_exists(tokenId), "KIP17Metadata: Reveal Date set of nonexistent token");
-        _tokenRevealedAts[tokenId] = revealedAt;
+        _tokenRevealableAts[tokenId] = revealableAt;
     }
 
     function mintWithTokenURIAndRevealInfo(
@@ -31,19 +31,19 @@ contract TimeCapsuleKIP17Token is KIP17Burnable, KIP17MetadataMintable, KIP17Enu
         uint256 tokenId,
         string memory _tokenURI,
         string memory revealedURI,
-        uint256 revealedAt
+        uint256 revealableAt
     ) public virtual onlyRole(MINTER_ROLE) returns (bool) {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, _tokenURI);
         _setTokenRevealedURI(tokenId, revealedURI);
-        _setTokenRevealedAt(tokenId, revealedAt);
+        _setTokenRevealableAt(tokenId, revealableAt);
         return true;
     }
 
     function tokenURI(uint256 tokenId) public view override(KIP17URIStorage, KIP17) returns (string memory) {
         require(_exists(tokenId), "KIP17Metadata: URI query for nonexistent token");
 
-        if (_tokenRevealedAts[tokenId] > 0) {
+        if (_tokenRevealableAts[tokenId] > 0) {
             return KIP17URIStorage.tokenURI(tokenId);
         } else {
             return _tokenRevealedURIs[tokenId];
@@ -52,9 +52,9 @@ contract TimeCapsuleKIP17Token is KIP17Burnable, KIP17MetadataMintable, KIP17Enu
 
     function reveal(uint256 tokenId) public returns (string memory) {
         require(_isApprovedOrOwner(msg.sender, tokenId), "KIP17Reveal: caller is not owner nor approved");
-        require(_tokenRevealedAts[tokenId] < block.timestamp * 1000, "KIP17Reveal: cannot reveal yet");
+        require(_tokenRevealableAts[tokenId] < block.timestamp * 1000, "KIP17Reveal: cannot reveal yet");
 
-        _setTokenRevealedAt(tokenId, 0);
+        _setTokenRevealableAt(tokenId, 0);
 
         return _tokenRevealedURIs[tokenId];
     }
@@ -66,8 +66,8 @@ contract TimeCapsuleKIP17Token is KIP17Burnable, KIP17MetadataMintable, KIP17Enu
             delete _tokenRevealedURIs[tokenId];
         }
 
-        if (_tokenRevealedAts[tokenId] != 0) {
-            delete _tokenRevealedAts[tokenId];
+        if (_tokenRevealableAts[tokenId] != 0) {
+            delete _tokenRevealableAts[tokenId];
         }
     }
 
