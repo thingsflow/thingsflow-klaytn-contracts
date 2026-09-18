@@ -1,0 +1,196 @@
+{
+  "repo": "thingsflow/thingsflow-klaytn-contracts",
+  "tier": "C",
+  "defaultBranch": "master",
+  "readAt": "2026-09-19",
+  "lastPushedAt": "2022-06-29",
+  "stack": [
+    "Solidity ^0.8.0 (Hardhat default 0.8.9)",
+    "JavaScript CommonJS",
+    "Node.js 12.x in CI",
+    "Hardhat 2.9.1",
+    "npm lockfile v2"
+  ],
+  "entrypoints": [
+    "npm ci",
+    "npm run compile",
+    "npm test",
+    "npm run lint",
+    "npm run coverage",
+    "npm run test:inheritance",
+    "sh certora/scripts/verifyAll.sh <comment>"
+  ],
+  "ciWorkflows": [
+    ".github/workflows/docs.yml",
+    ".github/workflows/slither.yml",
+    ".github/workflows/test.yml",
+    ".github/workflows/upgradeable.yml"
+  ],
+  "conventions": {
+    "branchPrefixes": {
+      "(root)": 4
+    },
+    "commitPrefixes": {
+      "Add": 15,
+      "Fix": 15,
+      "Update": 10,
+      "Merge": 7,
+      "added": 6,
+      "adding": 5,
+      "Improve": 3,
+      "Use": 3,
+      "Bump": 2,
+      "Optimize": 2,
+      "Refactor": 2,
+      "Remove": 2,
+      "add": 2,
+      "make": 2,
+      "refactoring": 2,
+      "Align": 1,
+      "Allow": 1,
+      "Annotate": 1,
+      "Change": 1,
+      "Inherit": 1,
+      "Make": 1,
+      "Match": 1,
+      "Move": 1,
+      "Release": 1,
+      "Rename": 1,
+      "Replace": 1,
+      "docs(erc1155)": 1,
+      "external": 1,
+      "fixed": 1,
+      "increase": 1,
+      "open": 1,
+      "path": 1,
+      "segregate": 1,
+      "spelling": 1,
+      "typo": 1,
+      "updated": 1,
+      "updating": 1
+    },
+    "sampleSize": 100
+  },
+  "prFlow": {
+    "mergedSampled": 0,
+    "baseCounts": {},
+    "mergeMethods": [
+      "merge_commit",
+      "squash_merge",
+      "rebase_merge"
+    ],
+    "protection": null,
+    "requiredChecks": [],
+    "requiredApprovals": null,
+    "rulesets": [],
+    "recentRunsSampled": 0
+  },
+  "measure": {
+    "repo": "thingsflow-klaytn-contracts",
+    "trackedFiles": 672,
+    "skippedSymlinks": 0,
+    "manifestsRead": [
+      "contracts/package.json",
+      "package.json"
+    ],
+    "areas": [
+      {
+        "dir": "certora",
+        "codeFiles": 6,
+        "codeLines": 95,
+        "qualifies": false
+      },
+      {
+        "dir": "hardhat",
+        "codeFiles": 1,
+        "codeLines": 10,
+        "qualifies": false
+      },
+      {
+        "dir": "scripts",
+        "codeFiles": 15,
+        "codeLines": 676,
+        "qualifies": false
+      },
+      {
+        "dir": "test",
+        "codeFiles": 165,
+        "codeLines": 29082,
+        "qualifies": true,
+        "doc": "structure/test.md"
+      }
+    ],
+    "workflows": [
+      ".github/workflows/docs.yml",
+      ".github/workflows/slither.yml",
+      ".github/workflows/test.yml",
+      ".github/workflows/upgradeable.yml"
+    ],
+    "integrations": [],
+    "dataModelDirs": [
+      "migrations"
+    ],
+    "sqlFiles": 0,
+    "documents": [
+      "structure/INDEX.md",
+      "structure/ci-and-deploy.md",
+      "structure/data-model.md",
+      "structure/test.md"
+    ],
+    "documentCount": 4
+  },
+  "documents": [
+    {
+      "doc": "structure/INDEX.md",
+      "covers": [
+        "package.json",
+        "contracts/package.json",
+        "hardhat.config.js",
+        "contracts",
+        "scripts",
+        "docs",
+        "CONTRIBUTING.md"
+      ]
+    },
+    {
+      "doc": "structure/ci-and-deploy.md",
+      "covers": [
+        ".github/workflows/docs.yml",
+        ".github/workflows/slither.yml",
+        ".github/workflows/test.yml",
+        ".github/workflows/upgradeable.yml",
+        "netlify.toml"
+      ]
+    },
+    {
+      "doc": "structure/data-model.md",
+      "covers": [
+        "migrations"
+      ]
+    },
+    {
+      "doc": "structure/test.md",
+      "covers": [
+        "test",
+        "hardhat/env-contract.js"
+      ]
+    }
+  ],
+  "absorbed": [
+    "structure/legacy-readme.md",
+    "docs",
+    "certora/README.md",
+    "test/TESTING.md",
+    "contracts/KIP/token/KIP7/README.adoc",
+    "contracts/KIP/token/KIP17/README.adoc",
+    "contracts/KIP/token/KIP37/README.adoc",
+    "contracts/access/README.adoc",
+    "contracts/governance/README.adoc",
+    "contracts/proxy/README.adoc",
+    "contracts/token/ERC20/README.adoc",
+    "contracts/token/ERC721/README.adoc",
+    "contracts/token/ERC777/README.adoc",
+    "contracts/token/ERC1155/README.adoc",
+    "contracts/utils/README.adoc"
+  ]
+}

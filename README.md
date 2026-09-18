@@ -1,27 +1,20 @@
+> **유휴 추정.** 마지막 푸시가 2022-06-29이고 그 뒤 커밋이 없다.
+> 아래 내용은 그 시점의 기록으로 읽는다. 현재 동작을 보장하지 않는다.
+> 근거: GitHub REST API pushed_at (2026-09-19 조회).
+
 # Klaytn Contracts
 
-[![Docs](https://img.shields.io/badge/docs-%F0%9F%93%84-blue)](https://docs.klaytn.foundation/)
-[![NPM Package](https://badge.fury.io/js/@klaytn%2Fcontracts.svg)](https://www.npmjs.com/package/@klaytn/contracts)
-[![Gitter](https://badges.gitter.im/klaytn/klaytn-contracts.svg)](https://gitter.im/klaytn/klaytn-contracts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+Klaytn용 보안 스마트 계약 라이브러리다. OpenZeppelin Contracts를 바탕으로 ERC 계열 구현과 KIP-7, KIP-17, KIP-37 구현을 제공한다. 저장소 구조와 현재 트리의 근거는 [structure/INDEX.md](structure/INDEX.md)에서 찾는다.
 
-**A library for secure smart contract development.** Build on a solid foundation of community-vetted code.
-It is a fork of openzepplin contracts. In addition to that, this repository contains Klaytn's token standards such as KIP-7, KIP-17, and KIP-37 compatible with ERC-20, ERC-721, and ERC-1155 respectively.
+## 설치와 사용
 
-Please refer to [this](https://kips.klaytn.com/token) link for the mapping of Ethereum to Klaytn token standards.
-
-## Overview
-
-### Installation
+배포 패키지는 다음 명령으로 설치한다.
 
 ```console
-$ npm install @klaytn/contracts
+npm install @klaytn/contracts
 ```
 
-An alternative to npm is to use the GitHub repository `klaytn/klaytn-contracts` to retrieve the contracts. When doing this, make sure to specify the tag for a release such as `v1.0.0`, instead of using the `master` branch.
-
-### Usage
-
-Once installed, you can use the contracts in the library by importing them:
+릴리스 소스를 GitHub에서 직접 가져올 때는 `master` 대신 `v1.0.0` 같은 릴리스 태그를 지정한다.
 
 ```solidity
 pragma solidity ^0.8.0;
@@ -29,29 +22,31 @@ pragma solidity ^0.8.0;
 import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
 
 contract MyCollectible is KIP17 {
-    constructor() KIP17("MyCollectible", "MCO") {
-    }
+    constructor() KIP17("MyCollectible", "MCO") {}
 }
 ```
 
-To keep your system secure, you should **always** use the installed code as-is, and neither copy-paste it from online sources, nor modify it yourself. The library is designed so that only the contracts and functions you use are deployed, so you don't need to worry about it needlessly increasing gas costs.
+## 개발 명령
 
-## Contribute
+현재 `package.json`에 정의된 명령은 다음과 같다.
 
-In line with our commitment to decentralization, all Klaytn codebase and its documentations are completely open source. Klaytn always welcomes your contribution. Anyone can view, edit, fix its contents and make suggestions. You can either create a pull request on GitHub or use GitBook. Make sure to sign our [Contributor License Agreement (CLA)](https://cla-assistant.io/klaytn/klaytn-contracts) first and there are also a few guidelines our contributors would check out before contributing:
+```bash
+npm ci
+npm run compile
+npm test
+npm run lint
+npm run coverage
+npm run test:inheritance
+```
 
-- [Contribution Guide](./CONTRIBUTING.md)
-- [License](./LICENSE)
-- [Code of Conducts](./code-of-conduct.md)
+Hardhat 컴파일러 기본값은 Solidity `0.8.9`다. 테스트 경로와 최적화 조건은 `hardhat.config.js`에 있다.
 
-## Need Help? <a href="#need-help" id="need-help"></a>
+## 문서와 지원
 
-If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/klaytn-contracts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge), [Klaytn Developers Forum](https://forum.klaytn.foundation/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
+- [Klaytn 문서](https://docs.klaytn.foundation/)
+- [npm 패키지](https://www.npmjs.com/package/@klaytn/contracts)
+- [Ethereum과 Klaytn 토큰 표준 매핑](https://kips.klaytn.com/token)
+- [기여 지침](CONTRIBUTING.md), [라이선스](LICENSE), [행동 강령](CODE_OF_CONDUCT.md)
+- [Gitter](https://gitter.im/klaytn/klaytn-contracts), [Klaytn Developers Forum](https://forum.klaytn.foundation/), [Discord](https://discord.gg/mWsHFqN5Zf)
 
-## License
-
- Contracts is released under the [MIT License](LICENSE).
-
-## Acknowledgments 
-
-Thanks for Openzepplin Team for providing the  contracts.
+기존 README 원문은 [structure/legacy-readme.md](structure/legacy-readme.md)에 보존되어 있다.
