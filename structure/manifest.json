@@ -88,11 +88,16 @@
  "measure": {
   "repo": "thingsflow-klaytn-contracts",
   "tier": "C",
+  "baseRef": "origin/master",
+  "firstBaseCommitDate": "2016-08-01",
+  "firstBaseCommitSha": "18f138dc",
   "entrySurface": false,
   "important": false,
   "importantBecause": [],
   "minPages": 10,
-  "trackedFiles": 677,
+  "trackedFiles": 672,
+  "nonVendoredFiles": 661,
+  "worktreeTrackedFiles": 676,
   "skippedSymlinks": 0,
   "manifestsRead": [
    "contracts/package.json",
@@ -135,6 +140,9 @@
    "migrations"
   ],
   "sqlFiles": 0,
+  "relations": [],
+  "relationGaps": [],
+  "relationCandidates": [],
   "documents": [
    "structure/INDEX.md"
   ],
