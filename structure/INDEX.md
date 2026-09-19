@@ -40,6 +40,19 @@ Klaytn KIP 토큰 표준과 OpenZeppelin 기반 ERC 계약을 npm 패키지로 �
 - `hardhat/` — 환경 확장 파일 1개. 테스트 계정에서 배포자 계정을 제외한다 (2026-09-19 읽음).
 - `migrations/` — `.gitkeep` 1개만 있는 자리표시자다 (2026-09-19 실측).
 
+## 이 저장소의 문서는 어디에 있나
+
+`docs/`는 팀이 쓰고 코드와 함께 움직인다. 이 문서가 그것을 대체하지 않고 가리킨다.
+
+| 찾는 것 | 가는 곳 |
+|---|---|
+| Antora 문서 구성 | [docs/antora.yml](../docs/antora.yml) |
+| 문서 내비게이션 | [docs/modules/ROOT/nav.adoc](../docs/modules/ROOT/nav.adoc) |
+
+## 다른 저장소와 어떻게 이어지나
+
+확인된 사내 저장소 관계 없음 (워크플로·매니페스트·서브모듈·호스트 호출, 2026-09-19 조회)
+
 ## 진입점
 
 - 설치: `npm ci`; 패키지 사용: `npm install @klaytn/contracts` (`package-lock.json`, `structure/legacy-readme.md`, 2026-09-19 읽음).
