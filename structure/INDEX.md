@@ -204,3 +204,12 @@ Klaytn KIP 토큰 표준과 OpenZeppelin 기반 ERC 계약을 npm 패키지로 �
 - 파일 수는 `find test -type f`와 확장자별 `find`로 셌고, 물리 줄 수 29,082와 코드 파일 165개는 `measure.py` 출력에서 확인했다 (2026-09-19).
 - M1~M3은 `ast_grep_helper.py validate` 후 `search --lang js --globs '!**/test/**' --globs '!**/*test*' --globs '!**/*spec*' --globs '!**/*_generated.*'` 순서로 실행했다. 모든 검색은 성공 종료와 빈 JSON 배열을 반환했다 (2026-09-19).
 - M4 명령은 `rg -l --no-heading -g '!test/**' -e "from ['\"].*test/" -e "import .*test\." . | awk -F/ '{print $2}' | sort -u | grep -c . || true`이며 결과는 0이다 (2026-09-19).
+
+## 문서 변경과 자동 배포 (2026-09-22)
+
+`.github/workflows/upgradeable.yml`은 GitHub 호스티드 러너의 `docs_changes` 잡에서 변경 경로를 먼저 확인한다.
+루트 `AGENTS.md`·`README.md`·`CLAUDE.md`, `structure/` 아래 Markdown·`manifest.json`,
+이 워크플로 파일만 바뀌면 배포 잡을 건너뛴다. 워크플로만 수정한 경우도 기존 코드를 즉시
+재배포하지 않으며, 다음 실행 코드 변경이나 기존 수동 실행에서 새 설정이 적용된다.
+실행 코드가 하나라도 함께 바뀌면 기존 배포가 실행된다. 변경 파일 판정에 실패하면 배포하지 않는다.
+필수 테스트와 별도 워크플로의 트리거는 유지한다.

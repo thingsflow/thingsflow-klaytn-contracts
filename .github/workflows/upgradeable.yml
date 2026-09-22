@@ -7,7 +7,73 @@ on:
       - release-v*
 
 jobs:
+  # 문서·이 workflow만 바뀌면 운영 러너/외부 배포를 실행하지 않는다.
+  # 실행 코드가 함께 바뀌면 기존 배포를 유지하고, 판정 오류는 배포를 막는다.
+  docs_changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      deploy: ${{ steps.diff.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Detect deployment changes
+        id: diff
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.event.after }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          DEPLOY_WORKFLOW: .github/workflows/upgradeable.yml
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            echo 'deploy=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          require_commit() {
+            [[ "$1" =~ ^[0-9a-f]{40}$ ]] || { echo 'Invalid commit SHA' >&2; exit 1; }
+            git cat-file -e "$1^{commit}"
+          }
+          case "$EVENT_NAME" in
+            push)
+              require_commit "$AFTER_SHA"
+              head="$AFTER_SHA"
+              if [[ "$BEFORE_SHA" == '0000000000000000000000000000000000000000' ]]; then
+                base=$(git hash-object -t tree -w --stdin </dev/null)
+              else
+                require_commit "$BEFORE_SHA"
+                base="$BEFORE_SHA"
+              fi
+              ;;
+            pull_request)
+              require_commit "$BASE_SHA"
+              require_commit "$HEAD_SHA"
+              base=$(git merge-base "$BASE_SHA" "$HEAD_SHA")
+              head="$HEAD_SHA"
+              ;;
+            *) echo 'Unsupported deployment event' >&2; exit 1 ;;
+          esac
+          changed=$(mktemp "$RUNNER_TEMP/deploy-paths.XXXXXX")
+          trap 'rm -f "$changed"' EXIT
+          git diff --no-renames --name-only -z "$base" "$head" -- > "$changed"
+          deploy=false
+          while IFS= read -r -d '' path; do
+            case "$path" in
+              AGENTS.md|README.md|CLAUDE.md|structure/*.md|structure/manifest.json|"$DEPLOY_WORKFLOW") ;;
+              *) deploy=true ;;
+            esac
+          done < "$changed"
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
+          echo "Deployment needed: $deploy"
+
   trigger:
+    needs: docs_changes
+    if: ${{ needs.docs_changes.outputs.deploy == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - id: app
